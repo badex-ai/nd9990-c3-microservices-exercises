@@ -3,8 +3,9 @@ import {config} from './config/config';
 
 
 // Configure AWS
-const credentials = new AWS.SharedIniFileCredentials({profile: config.aws_profile});
-AWS.config.credentials = credentials;
+// const credentials = new AWS.SharedIniFileCredentials({profile: config.aws_profile});
+// AWS.config.credentials = credentials;
+
 
 export const s3 = new AWS.S3({
   signatureVersion: 'v4',
@@ -12,15 +13,40 @@ export const s3 = new AWS.S3({
   params: {Bucket: config.aws_media_bucket},
 });
 
+
+
+
 // Generates an AWS signed URL for retrieving objects
 export function getGetSignedUrl( key: string ): string {
   const signedUrlExpireSeconds = 60 * 5;
 
-  return s3.getSignedUrl('getObject', {
-    Bucket: config.aws_media_bucket,
-    Key: key,
-    Expires: signedUrlExpireSeconds,
-  });
+
+  // console.log("-----------------------")
+
+  // console.log("configurations for the getSignedUrl request " + config.aws_media_bucket)
+
+  // console.log("-----------------------")
+
+  // console.log("This is the key " + key)
+
+  // console.log("-----------------------")
+
+  try{
+    return s3.getSignedUrl('getObject', {
+      Bucket: config.aws_media_bucket,
+      Key: key,
+      Expires: signedUrlExpireSeconds,
+    });
+  }catch(error){
+    // console.log("-----------------------")
+    // console.log("This is the error that was returned")
+    // console.log("-----------------------")
+    // console.log(error)
+    // console.log("-----------------------")
+
+  }
+  
+  
 }
 
 // Generates an AWS signed URL for uploading objects

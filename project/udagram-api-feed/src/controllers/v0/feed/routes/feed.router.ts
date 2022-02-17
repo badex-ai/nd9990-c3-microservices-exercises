@@ -29,11 +29,32 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
 // Get all feed items
 router.get('/', async (req: Request, res: Response) => {
   const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
+
   items.rows.map((item) => {
     if (item.url) {
       item.url = AWS.getGetSignedUrl(item.url);
+    
+      // console.log("This is from the get all method on the feed router '/' endpoint ")
+
+      // console.log("                                       ")
+      // console.log("-------------------------------------")
+      // console.log(item.url)
+      // console.log("-------------------------------------")
+      
     }
   });
+  // console.log("-------------------------------------")
+
+  // console.log('row 1')
+  // console.log(items.rows[0].url)
+  // console.log("-------------------------------------")
+  
+  // console.log('row 2')
+  // console.log(items.rows[1].url,)
+  
+  // console.log("-------------------------------------")
+
+
   res.send(items);
 });
 
@@ -61,9 +82,7 @@ router.post('/',
     async (req: Request, res: Response) => {
       const caption = req.body.caption;
       const fileName = req.body.url; // same as S3 key name
-      console.log("---------------------------")
-      console.log(fileName)
-      console.log(("---------------------------"))
+
 
       if (!caption) {
         return res.status(400).send({message: 'Caption is required or malformed.'});
@@ -85,3 +104,8 @@ router.post('/',
     });
 
 export const FeedRouter: Router = router;
+
+
+
+
+

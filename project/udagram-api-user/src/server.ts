@@ -13,7 +13,13 @@ import { V0_USER_MODELS} from './controllers/v0/model.index';
   await sequelize.addModels(V0_USER_MODELS);
 
   console.debug("Initialize database connection...");
-  await sequelize.sync();
+  try{
+    await sequelize.sync();
+  }catch(err){
+    console.log(err)
+  }
+
+  
 
   const app = express();
   const port = process.env.PORT || 8080;
@@ -33,6 +39,7 @@ import { V0_USER_MODELS} from './controllers/v0/model.index';
     preflightContinue: true,
     origin: '*',
   }));
+
 
   app.use('/api/v0/', IndexRouter);
 
