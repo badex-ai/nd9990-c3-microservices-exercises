@@ -17,14 +17,14 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
   try{
     await sequelize.sync();
   }catch(err){
-    console.debug("------------------------------------");
-  console.debug("                                     ");
-  console.debug("This it the error that was returned");
-  console.debug("                                     ");
-  console.debug("------------------------------------");
+  //   console.debug("------------------------------------");
+  // console.debug("                                     ");
+  // console.debug("This it the error that was returned");
+  // console.debug("                                     ");
+  // console.debug("------------------------------------");
   console.debug(err);
-  console.debug("                                     ");
-  console.debug("------------------------------------");
+  // console.debug("                                     ");
+  // console.debug("------------------------------------");
   
   }
 
