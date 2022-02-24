@@ -12,5 +12,15 @@ export class FeedItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+
+    console.log("This is from the ionic front-end")
+    console.log("-------------------------------")
+    console.log(this.feedItem)
+    console.log("-------------------------------")
+
+  }
+  
+
 }

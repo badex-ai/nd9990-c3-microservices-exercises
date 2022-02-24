@@ -13,8 +13,26 @@ import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
   await sequelize.addModels(V0_FEED_MODELS);
   await sequelize.addModels(V0_USER_MODELS);
 
+  console.debug("------------------------------------");
+  console.debug("                                     ");
   console.debug("Initialize database connection...");
-  await sequelize.sync();
+  console.debug("                                     ");
+  console.debug("------------------------------------");
+
+  try{
+    await sequelize.sync();
+  }catch(err){
+    console.debug("------------------------------------");
+  console.debug("                                     ");
+  console.debug("This it the error that was returned");
+  console.debug("                                     ");
+  console.debug("------------------------------------");
+  console.debug(err);
+  console.debug("                                     ");
+  console.debug("------------------------------------");
+  
+  }
+
 
   const app = express();
   const port = process.env.PORT || 8080;
@@ -45,7 +63,13 @@ import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
 
   // Start the Server
   app.listen( port, () => {
+
+    console.log( "------------------------------------");
     console.log( `server running ${config.url}` );
+    console.log( "------------------------------------");
+
     console.log( `press CTRL+C to stop server` );
+    console.log( "------------------------------------");
+
   } );
 })();

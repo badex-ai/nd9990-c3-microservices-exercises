@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\udagram-frontend"
+		},
+		{
+			"path": "..\\..\\..\\project"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#67cae0",
+			"activityBar.activeBorder": "#d42bb5",
+			"activityBar.background": "#67cae0",
+			"activityBar.foreground": "#15202b",
+			"activityBar.inactiveForeground": "#15202b99",
+			"activityBarBadge.background": "#d42bb5",
+			"activityBarBadge.foreground": "#e7e7e7",
+			"sash.hoverBorder": "#67cae0",
+			"statusBar.background": "#3dbbd7",
+			"statusBar.foreground": "#15202b",
+			"statusBarItem.hoverBackground": "#26a0bb",
+			"statusBarItem.remoteBackground": "#3dbbd7",
+			"statusBarItem.remoteForeground": "#15202b",
+			"titleBar.activeBackground": "#3dbbd7",
+			"titleBar.activeForeground": "#15202b",
+			"titleBar.inactiveBackground": "#3dbbd799",
+			"titleBar.inactiveForeground": "#15202b99"
+		},
+		"peacock.color": "#3dbbd7"
+	}
+}
